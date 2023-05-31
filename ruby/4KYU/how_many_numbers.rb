@@ -51,3 +51,9 @@ def find_all(n, k)
 
   final_numbers.empty? ? [] : [final_numbers.length, *final_numbers.minmax]
 end
+
+# optimal solution
+def find_all(n, k)
+  a = (1..9).to_a.repeated_combination(k).select{|c| c.reduce(&:+) == n}
+  a.empty? ? [] : [a.size, a.first.join.to_i, a.last.join.to_i]
+end
